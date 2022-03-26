@@ -1,0 +1,114 @@
+<app-header titulo="Personaje"></app-header>
+
+<ion-content parallaxHeader>
+    <ion-card>
+
+ 
+
+        <ion-card-content>
+ 
+            <div class="center-image">
+                <img [src]="personaje.image">
+            </div>
+
+            <p></p>
+
+            <ion-row>
+                <ion-col size="6">Nombre</ion-col>
+                <ion-col size="6">{{ personaje.name }}</ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="6">Status</ion-col>
+                <ion-col size="6">{{ personaje.status }}</ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="6">Especie</ion-col>
+                <ion-col size="6">{{ personaje.species }}</ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="personaje.type" >
+                <ion-col size="6">Tipo</ion-col>
+                <ion-col size="6">{{ personaje.type }}</ion-col>
+            </ion-row>
+             
+            <ion-row>
+                <ion-col size="6">Genero</ion-col>
+                <ion-col size="6">{{ personaje.gender }}</ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="6">Episodios</ion-col>
+                <ion-col size="6">{{ personaje.episode.length }}</ion-col>
+            </ion-row>
+
+
+            <!-- <ion-grid fixed>
+                <ion-row>
+                    <ion-col size="6">Staus</ion-col>
+                    <ion-col size="6">{{ personaje.status }}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="6">Species</ion-col>
+                    <ion-col size="6">{{ personaje.species }}</ion-col>
+                </ion-row>
+                <ion-row *ngIf="personaje.type" >
+                    <ion-col size="6">Type</ion-col>
+                    <ion-col size="6">{{ personaje.type }}</ion-col>
+                </ion-row>
+                <ion-row slot="end">
+                    <ion-col size="6">Gender</ion-col>
+                    <ion-col size="6">{{ personaje.gender }}</ion-col>
+                </ion-row>
+ 
+            </ion-grid> -->
+
+        </ion-card-content>
+
+    </ion-card>
+ 
+    <!-- Basic -->
+<ion-accordion-group *ngFor="let episode of episodes">
+    <ion-accordion value="colors">
+      <ion-item slot="header">
+        <ion-label>{{ episode.id }} {{ episode.name }} </ion-label>
+      </ion-item>
+  
+      <ion-list slot="content">
+        <ion-item>
+          <ion-label>
+            <h4>Emision :  {{ episode.air_date }}</h4>
+            <h4>Episodio : {{ episode.episode }}</h4>
+            <h4>Personajes : {{ episode.characters.length }}</h4>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-accordion>
+   
+  </ion-accordion-group>
+
+
+    <!-- <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor="let episode of episodes">
+      
+            <ion-card>
+                <ion-item>
+                  <ion-label>{{ episode.id }} {{ episode.name }}</ion-label>
+                </ion-item>
+              
+                <ion-card-content>
+                    <ion-item>
+                        <ion-badge slot="end">{{ episode.episode }}</ion-badge>
+                        <ion-badge slot="end">{{ episode.air_date }}</ion-badge>                    
+                    </ion-item> 
+                </ion-card-content>
+              </ion-card>
+      
+        </ion-slide>
+    </ion-slides> -->
+
+
+</ion-content>
+
+

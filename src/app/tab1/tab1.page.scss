@@ -1,0 +1,16 @@
+// ion-content {
+
+//     --background: #5a55ca;
+//     overflow: hidden;
+// }
+ 
+
+.mainContent {
+ 
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow: scroll !important;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}

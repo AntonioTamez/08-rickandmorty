@@ -1,0 +1,18 @@
+
+<ion-card *ngFor="let character of characters" color="transparent">
+  <ion-card-content>
+ 
+    
+    <ion-item detail="true" 
+              lines="none" 
+              mode="ios" 
+              shape="round" (click)="verDetalle(character)"  >
+      <ion-avatar>
+        <img [src]="character.image"/>
+      </ion-avatar>
+
+      <ion-label slot="end" class="ion-text-left"> {{ character.name | slice : 0: 25 }}</ion-label>
+    </ion-item>
+ 
+  </ion-card-content>
+</ion-card>
