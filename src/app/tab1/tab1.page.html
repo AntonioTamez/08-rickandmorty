@@ -1,23 +1,23 @@
+<!-- <ion-header [translucent]="true" mode="ios" class="ion-no-border"> 
+  <ion-toolbar>
+    <ion-title>
+      Personajes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
  
-  <ion-header [translucent]="true" mode="ios" class="ion-no-border" > 
-    <ion-toolbar>
-      <ion-title>
-        Personajes
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content [fullscreen]="true"> 
-
-    <ion-header collapse="condense" mode="ios" class="ion-no-border">
+  <ion-content [fullscreen]="true" 
+               scrollEvents="true" 
+               [appAnimatedFab]="fab">
+    <ion-header collapse="condense">
       <ion-toolbar>
         <ion-title size="large">Personajes</ion-title>
       </ion-toolbar>
-    </ion-header>
+    </ion-header> -->
   
     <!-- <app-card-list [characters]="characters"></app-card-list> -->
-
-    <app-characters [characters]="characters"></app-characters>
+    <!-- <ion-button #button>Lovely Button</ion-button> -->
+    <!-- <app-characters [characters]="characters"></app-characters>
 
 
     <ion-infinite-scroll 
@@ -29,6 +29,62 @@
           loadingText="Cargando...">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
+    
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" #fab>
+      <ion-icon name="pencil-outline" color="danger"></ion-icon>
+      <span>Compose</span>
+    </ion-fab-button>
+  </ion-fab>
   
   </ion-content>
- 
+  -->
+
+  
+  
+
+  <ion-header class="ion-no-border" >
+  
+    <ion-searchbar
+      placeholder="Buscar personaje"
+      animated
+      (ionChange) = "onSearchChange( $event )"
+      [debounce]="750"
+      color="rm"></ion-searchbar>
+  
+      <p>
+        <ion-label>TOTAL CHARACTERS : 826</ion-label>
+      </p>
+
+  </ion-header>
+
+<ion-content scrollEvents="true" 
+             [appAnimatedFab]="fab">
+
+  <app-characters [characters]="characters"></app-characters>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="rm" #fab>
+      <ion-icon name="pencil-outline" color="rm-verde"></ion-icon>
+      <span>Compose</span>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-infinite-scroll threshold="100px"  
+                       position="bottom" 
+                       (ionInfinite)="loadData( $event )">
+
+    <ion-infinite-scroll-content 
+        loadingSpinner="bubbles" 
+        loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+
+  </ion-infinite-scroll>
+
+
+
+
+</ion-content>
+
+
+

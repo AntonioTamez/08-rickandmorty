@@ -6,6 +6,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { HeaderComponent } from './header/header.component';
 import { CardListComponent } from './card-list/card-list.component';
+import { SharedDirectivesModule } from '../directives/shared-directives.module';
 
 
 @NgModule({
@@ -16,19 +17,19 @@ import { CardListComponent } from './card-list/card-list.component';
     CharacterComponent,
     CharactersComponent,
     HeaderComponent,
-    CardListComponent
+    CardListComponent,
   ],
   exports: [
     CharacterComponent,
     CharactersComponent,
     HeaderComponent,
-    CardListComponent
-
+    CardListComponent,
   ],
   imports: [
     CommonModule,
     IonicModule,
-    PipesModule
+    PipesModule,
+    SharedDirectivesModule
   ]
 })
 export class ComponentsModule { }

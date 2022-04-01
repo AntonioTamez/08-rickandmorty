@@ -13,6 +13,8 @@ const URL = environment.url;
 export class ApiService {
 
   private charactersPage = 0;
+  private charactersByNamePage = 0;
+  
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +31,15 @@ export class ApiService {
     this.charactersPage ++;  
     const query =`/character?page=${this.charactersPage}`
     // console.log('api.service - getCharacters ',query);
+    return this.ejecutarQuery<Characters>(query);
+  }
+
+  getCharactersByName(name: string){
+  
+    this.charactersByNamePage ++;  
+     
+    const query =`/character?name=${name}&page=${this.charactersByNamePage}`
+     console.log('api.service - getCharactersByName ',query);
     return this.ejecutarQuery<Characters>(query);
   }
 

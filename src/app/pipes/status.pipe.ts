@@ -8,14 +8,14 @@ export class StatusPipe implements PipeTransform {
   transform(value: string): string {
     
     if(value.toUpperCase() === "ALIVE"){
-      return 'pulse-outline'
+      return 'rm-verde  '
     }
 
     if(value.toUpperCase() === "DEAD"){
-      return 'skull-outline'
+      return 'rm-rojo'
     }
  
-    return 'help-outline' 
+    return 'warning' 
   }
 
 }
