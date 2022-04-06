@@ -13,8 +13,8 @@ const URL = environment.url;
 export class ApiService {
 
   private charactersPage = 0;
-  private charactersByNamePage = 0;
-  
+  private charactersByNamePage = 0; 
+  private oldName = "";
 
   constructor(private http: HttpClient) { }
 
@@ -28,19 +28,27 @@ export class ApiService {
   }
 
   getCharacters(){
-    this.charactersPage ++;  
+    this.charactersPage ++; 
     const query =`/character?page=${this.charactersPage}`
-    // console.log('api.service - getCharacters ',query);
+     //console.log('api.service - getCharacters ',query);
     return this.ejecutarQuery<Characters>(query);
   }
 
   getCharactersByName(name: string){
-  
-    this.charactersByNamePage ++;  
-     
-    const query =`/character?name=${name}&page=${this.charactersByNamePage}`
+ 
+    if(this.oldName != name){
+      this.charactersByNamePage = 0;
+    }
+
+    this.oldName = name;
+    this.charactersByNamePage ++;
+
+
+    console.log("entro en epia");
+     const query =`/character?name=${name}&page=${this.charactersByNamePage}`
      console.log('api.service - getCharactersByName ',query);
-    return this.ejecutarQuery<Characters>(query);
+     return this.ejecutarQuery<Characters>(query);
+ 
   }
 
   getEpisodeById(id: string):Observable<Episode>{

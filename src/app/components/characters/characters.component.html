@@ -1,8 +1,8 @@
-  <ion-list lines="none">
-    <ion-item *ngFor="let character of characters" 
-               lines="none"
-               (click)="verDetalle(character)" 
-               color="rmdark">
+  <ion-list>
+    <ion-item *ngFor="let character of characters"  
+               (click)="verDetalle(character)"  
+               color="rmdark"
+               lines="none">
  
       <ion-col size="3"> 
           <img [src]="character.image"

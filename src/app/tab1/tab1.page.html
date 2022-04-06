@@ -1,63 +1,19 @@
-<!-- <ion-header [translucent]="true" mode="ios" class="ion-no-border"> 
-  <ion-toolbar>
-    <ion-title>
-      Personajes
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
- 
-  <ion-content [fullscreen]="true" 
-               scrollEvents="true" 
-               [appAnimatedFab]="fab">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Personajes</ion-title>
-      </ion-toolbar>
-    </ion-header> -->
-  
-    <!-- <app-card-list [characters]="characters"></app-card-list> -->
-    <!-- <ion-button #button>Lovely Button</ion-button> -->
-    <!-- <app-characters [characters]="characters"></app-characters>
-
-
-    <ion-infinite-scroll 
-        threshold="25%"  
-        position="bottom" 
-        (ionInfinite)="loadData()">
-      <ion-infinite-scroll-content 
-          loadingSpinner="bubbles" 
-          loadingText="Cargando...">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-    
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" #fab>
-      <ion-icon name="pencil-outline" color="danger"></ion-icon>
-      <span>Compose</span>
-    </ion-fab-button>
-  </ion-fab>
-  
-  </ion-content>
-  -->
-
-  
-  
-
-  <ion-header class="ion-no-border" >
+  <ion-header class="ion-no-border">
   
     <ion-searchbar
       placeholder="Buscar personaje"
-      animated
-      (ionChange) = "onSearchChange( $event )"
-      [debounce]="750"
-      color="rm"></ion-searchbar>
+      (ionFocus) = "onSearchBarFocus()" 
+      [debounce]="450"
+      color="rm"
+      class="search"
+      ></ion-searchbar>
   
       <p>
-        <ion-label>TOTAL CHARACTERS : 826</ion-label>
+        <ion-label class="text-small">TOTAL CHARACTERS : {{ EpisodiosTotales }}</ion-label>
       </p>
 
   </ion-header>
-
+ 
 <ion-content scrollEvents="true" 
              [appAnimatedFab]="fab">
 
@@ -68,21 +24,25 @@
       <ion-icon name="pencil-outline" color="rm-verde"></ion-icon>
       <span>Compose</span>
     </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button #fab><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button #fab><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button #fab><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+      <ion-fab-button #fab><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 
+ 
+ 
   <ion-infinite-scroll threshold="100px"  
                        position="bottom" 
                        (ionInfinite)="loadData( $event )">
 
-    <ion-infinite-scroll-content 
-        loadingSpinner="bubbles" 
-        loadingText="Cargando...">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" 
+                                loadingText="Cargando...">
     </ion-infinite-scroll-content>
 
   </ion-infinite-scroll>
-
-
-
 
 </ion-content>
 

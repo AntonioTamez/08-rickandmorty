@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Character } from '../interfaces/interfaces';
-import { AnimationController, IonInfiniteScroll, IonSearchbar } from '@ionic/angular';
+import { AnimationController, IonInfiniteScroll, IonSearchbar, ModalController } from '@ionic/angular';
+import { BuscarPersonajePage } from '../pages/buscar-personaje/buscar-personaje.page';
 
 
 @Component({
@@ -10,15 +11,17 @@ import { AnimationController, IonInfiniteScroll, IonSearchbar } from '@ionic/ang
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit{
-
+  
   @ViewChild( IonInfiniteScroll , {static : true}) infiniteScroll : IonInfiniteScroll;
   @ViewChild ( IonSearchbar ) ionSearchBar : IonSearchbar;
-
+  @ViewChild("button", { read: ElementRef, static: true }) button: ElementRef;
+ 
+  @Input() EpisodiosTotales : number = 0; 
   public characters: Character[] = [];
-  @ViewChild("button", { read: ElementRef, static: true }) button: ElementRef
 
   constructor(private apiService: ApiService,
-              private animationCtrl: AnimationController) {}
+              private animationCtrl: AnimationController,
+              private modalCtrl: ModalController) {}
 
   ngAfterViewInit() {
     //this.animateButton()
@@ -35,81 +38,78 @@ export class Tab1Page implements OnInit{
         animation.play()
     }
 
-  public pulseButton() {
-    const animation = this.animationCtrl
-      .create()
-      .addElement(this.button.nativeElement)
-      .duration(1500)
-      .iterations(Infinity)
-      .keyframes([
-        { offset: 0, boxShadow: "primary" },
-        { offset: 0.7, boxShadow: "0 0 0 10px rgba(44, 103, 255, 0)" },
-        { offset: 1, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0)" }
-      ]);
+  // public pulseButton() {
+  //   const animation = this.animationCtrl
+  //     .create()
+  //     .addElement(this.button.nativeElement)
+  //     .duration(1500)
+  //     .iterations(Infinity)
+  //     .keyframes([
+  //       { offset: 0, boxShadow: "primary" },
+  //       { offset: 0.7, boxShadow: "0 0 0 10px rgba(44, 103, 255, 0)" },
+  //       { offset: 1, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0)" }
+  //     ]);
   
-      animation.play();
-    }
+  //     animation.play();
+  //   }
    
   ngOnInit() {
     this.getCharacters();
   }
 
+  //#region Metodos
+
   getCharacters(){
 
     this.apiService.getCharacters().subscribe( resp => {
         
+      this.EpisodiosTotales = resp.info.count;
+       
       if(resp.results.length > 0)
-      {
+      { 
         this.characters.push( ...resp.results);
-
-        if(resp.info.next === null){
-          this.infiniteScroll.disabled = true;
-          return;
-        }
-      }
-    });
-
-    this.infiniteScroll.complete();
-
-  }
-
-  getCharactersByName(name : string){
-    this.apiService.getCharactersByName(name).subscribe( resp => {
-        
-      if (resp.info.prev === null){
-        this.characters = [];
-      }
-
-      if(resp.results.length > 0)
-      {
-        this.characters.push( ...resp.results);
-
-        if(resp.info.next === null){
-          this.infiniteScroll.disabled = true;
-          return;
-        }
-      }
-    });
-
-    this.infiniteScroll.complete();
-  }
  
+        if(resp.info.next === null){
+          this.infiniteScroll.disabled = true;
+          return;
+        }
+      }
+    });
+
+    this.infiniteScroll.complete();
+
+  }
+
+  async BuscarPersonaje(){
+    const modal = await this.modalCtrl.create({
+      component: BuscarPersonajePage,
+      animated:true,
+      swipeToClose:true, 
+      showBackdrop:true,
+      backdropDismiss:true, 
+    });
+
+    modal.present();
+  }
+
+  //#endregion
+
+
+  //#region Eventos
+
   loadData( evt ){
     
     if(this.ionSearchBar.value.length === 0)
     {
       this.getCharacters();
-    } else {
-      this.getCharactersByName(this.ionSearchBar.value.toString());
-    }
+    }  
   }
 
-
-
-  onSearchChange(evt){ 
-
-    this.getCharactersByName(this.ionSearchBar.value.toString());
-
+  onSearchBarFocus(){
+    this.BuscarPersonaje();
   }
 
+  //#endregion
+
+ 
 }

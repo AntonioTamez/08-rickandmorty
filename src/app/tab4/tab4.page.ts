@@ -13,13 +13,10 @@ export class Tab4Page implements OnInit {
   }
 
   onClick(event){
-    let systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-    systemDark.addEventListener("change", this.colorTest);
     if(event.detail.checked){
-      document.body.setAttribute('data-theme', 'dark');
-    }
-    else{
-      document.body.setAttribute('data-theme', 'light');
+      document.body.setAttribute('color-theme','dark')
+    } else {
+      document.body.setAttribute('color-theme','light')
     }
   }
 

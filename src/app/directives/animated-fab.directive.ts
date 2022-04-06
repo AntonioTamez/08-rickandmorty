@@ -44,12 +44,12 @@ export class AnimatedFabDirective implements AfterViewInit{
       // Scrolling down
       this.expanded = false;
       this.shrinkFab();
-      console.log(this.fab);
+      //console.log(this.fab);
     } else if ($event.detail.deltaY < 0 && !this.expanded) {
       // Scrolling up
       this.expanded = true;
       this.expandFab(); 
-      console.log(this.fab);
+      //console.log(this.fab);
     }
   }
  

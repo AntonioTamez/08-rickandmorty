@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="rm">
+    <ion-buttons slot="start"> 
+      <ion-back-button defaultHref="/" 
+                       (click)="cerrarVentana()">
+      </ion-back-button>
+
+      <ion-searchbar placeholder="Busca personaje"   
+                     (ionChange)="onSearchChange()" 
+                     (ionClear)="clear()"
+                     [debounce]="250"  
+      >
+      </ion-searchbar>
+
+    </ion-buttons> 
+    <ion-title ></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="rmdark">
+  <app-characters [characters]="characters"></app-characters>
+ 
+    <ion-grid *ngIf="characters.length ===  0">
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-label color="medium" >Capture el nombre de un personaje</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+ 
+
+
+
+  <ion-infinite-scroll threshold="100px"  
+                       position="bottom" 
+                       (ionInfinite)="onSearchChange()"
+                        
+                       
+  >
+
+  <ion-infinite-scroll-content loadingSpinner="bubbles" 
+                               loadingText="Cargando..."
+  >
+  </ion-infinite-scroll-content>
+
+  </ion-infinite-scroll>
+</ion-content>
