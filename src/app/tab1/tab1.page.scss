@@ -19,4 +19,28 @@ ion-fab-button::part(native) {
 }
  
  
- 
+.text-small{ 
+  FONT-SIZE: smaller;
+  COLOR: var(--ion-color-medium);
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+ion-searchbar{
+  --border-radius:25px;
+}
+
+// ion-searchbar{
+//     .searchbar-input.sc-ion-searchbar-md {    
+//         border-radius: 25px;
+//         background-position: left 18px center;
+//         height: auto;
+//         font-size: 1.1rem;
+//         font-weight: 400;
+//         color: #ffffff;
+//         background-color: ffffff;
+//         text-align: center;
+//         -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+//         box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+//     } 
+//   } 

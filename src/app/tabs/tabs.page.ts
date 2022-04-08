@@ -2,6 +2,7 @@ import { BackgroundColorOptions } from './../../../node_modules/@capacitor/statu
 import { Component } from '@angular/core';
 import { StatusBar, Style } from '@capacitor/status-bar'
 import { isPlatform } from '@ionic/angular';
+import { StorageService } from '../services/storage.service';
  
  
 @Component({
@@ -11,9 +12,11 @@ import { isPlatform } from '@ionic/angular';
 })
 export class TabsPage {
  
-  constructor() {}
+  _temaFavorito : string;
+
+  constructor(private storageService: StorageService) {}
   
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
 
     if(isPlatform('mobile')){
       window.addEventListener('statusTap', function () {
@@ -27,7 +30,28 @@ export class TabsPage {
       });
       this.changeStyles();
     }
-    StatusBar.setBackgroundColor({color: '#0b1e2d' })
+
+    StatusBar.setBackgroundColor({color: '#0b1e2d' }).catch( resp => {
+      console.log("ionViewWillEnter - setBackgroundColor ");
+    });
+
+ 
+    this.loadTema();
+
+
+  }
+
+
+  async loadTema(){
+    this._temaFavorito = await this.storageService.CargarTemaFavorito();
+     
+    if(this._temaFavorito !== null){
+      document.body.setAttribute('color-theme',this._temaFavorito)
+    } else
+    {
+      document.body.setAttribute('color-theme','dark')
+      this.storageService.GuardarTema('dark')
+    }
   }
 
   // toogleVisibility(){

@@ -1,23 +1,26 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="rm">
+
+  <ion-toolbar>
     <ion-buttons slot="start"> 
       <ion-back-button defaultHref="/" 
                        (click)="cerrarVentana()">
       </ion-back-button>
-
-      <ion-searchbar placeholder="Busca personaje"   
-                     (ionChange)="onSearchChange()" 
-                     (ionClear)="clear()"
-                     [debounce]="250"  
-      >
-      </ion-searchbar>
-
+      <ion-title >Personajes</ion-title>
     </ion-buttons> 
-    <ion-title ></ion-title>
+  
+    <ion-searchbar 
+      placeholder="Busca personaje"   
+      (ionChange)="onSearchChange()" 
+      (ionClear)="clear()"
+      [debounce]="250">
+    </ion-searchbar>
+    
   </ion-toolbar>
+
+  
 </ion-header>
 
-<ion-content color="rmdark">
+<ion-content>
   <app-characters [characters]="characters"></app-characters>
  
     <ion-grid *ngIf="characters.length ===  0">

@@ -50,7 +50,6 @@ export class CharactersComponent {
 
     const modal = await this.modalCtrl.create({
       component: CharacterComponent,
-      mode:"ios",
       animated:true,
       swipeToClose:true, 
       showBackdrop:true,

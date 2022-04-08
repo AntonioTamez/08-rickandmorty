@@ -59,25 +59,29 @@ export class Tab1Page implements OnInit{
 
   //#region Metodos
 
+ 
   getCharacters(){
 
-    this.apiService.getCharacters().subscribe( resp => {
+    setTimeout(() => {
+      this.apiService.getCharacters().subscribe( resp => {
         
-      this.EpisodiosTotales = resp.info.count;
-       
-      if(resp.results.length > 0)
-      { 
-        this.characters.push( ...resp.results);
- 
-        if(resp.info.next === null){
-          this.infiniteScroll.disabled = true;
-          return;
+        this.EpisodiosTotales = resp.info.count;
+         
+        if(resp.results.length > 0)
+        { 
+          this.characters.push( ...resp.results);
+   
+          if(resp.info.next === null){
+            this.infiniteScroll.complete();
+            this.infiniteScroll.disabled = true;
+            return;
+          }
         }
-      }
-    });
-
-    this.infiniteScroll.complete();
-
+      });
+  
+      this.infiniteScroll.complete();
+    }, 350);
+   
   }
 
   async BuscarPersonaje(){
@@ -97,12 +101,11 @@ export class Tab1Page implements OnInit{
 
   //#region Eventos
 
-  loadData( evt ){
+  loadData(){
     
-    if(this.ionSearchBar.value.length === 0)
-    {
+    
       this.getCharacters();
-    }  
+      
   }
 
   onSearchBarFocus(){

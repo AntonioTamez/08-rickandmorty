@@ -6,14 +6,15 @@ import { AnimationController,Animation } from '@ionic/angular';
 })
 export class AnimatedFabDirective implements AfterViewInit{
 
-  @Input('appAnimatedFab') fab: any;
+  @Input('appAnimatedFab') fab: any; 
 
   constructor(private animationCtrl: AnimationController) { }
 
 
   shrinkAnimation: Animation;
   expanded = true;
- 
+  saveY = 0;
+
   ngAfterViewInit() {
     this.fab = this.fab.el;
     this.setupAnimation();
@@ -40,6 +41,12 @@ export class AnimatedFabDirective implements AfterViewInit{
   }
  
   @HostListener('ionScroll', ['$event']) onContentScroll($event: any) {
+
+ 
+
+     
+
+
     if ($event.detail.deltaY > 0 && this.expanded) {
       // Scrolling down
       this.expanded = false;
@@ -51,6 +58,8 @@ export class AnimatedFabDirective implements AfterViewInit{
       this.expandFab(); 
       //console.log(this.fab);
     }
+ 
+
   }
  
   expandFab() {

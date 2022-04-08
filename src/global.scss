@@ -26,34 +26,34 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
  
-// cambia todo el color del app
-ion-app{
-    background-color: var(--ion-color-rmdark);
-}
+// // cambia todo el color del app
+// ion-app{
+//     background-color: var(--ion-color-rmdark);
+// }
 
 
-ion-infinite-scroll-content{
-    background-color: var(--ion-color-rmdark);
-}
+// ion-infinite-scroll-content{
+//     background-color: var(--ion-color-rmdark); 
+// }
 
-ion-searchbar{
-    .searchbar-input.sc-ion-searchbar-md {    
-        border-radius: 25px;
-        background-position: left 18px center;
-        height: auto;
-        font-size: 1.1rem;
-        font-weight: 400;
-        color: #ffffff;
-        background-color: ffffff;
-        text-align: center;
-        -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
-        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
-    } 
-  } 
+// ion-searchbar{
+//     .searchbar-input.sc-ion-searchbar-md {    
+//         border-radius: 25px;
+//         background-position: left 18px center;
+//         height: auto;
+//         font-size: 1.1rem;
+//         font-weight: 400;
+//         color: #ffffff;
+//         background-color: ffffff;
+//         text-align: center;
+//         -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+//         box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+//     } 
+//   } 
  
-ion-spinner{
-  color: var(--ion-color-rm-gris);
-}
+// ion-spinner{
+//   color: var(--ion-color-rm-gris) !important;
+// }
  
 ion-tab-button[class*="tab-selected"]{
     ion-icon, ion-label {
@@ -65,8 +65,3 @@ ion-tab-button[class*="tab-selected"]{
 
  
   
-.text-small{ 
-        FONT-SIZE: x-small;
-        COLOR: #FFFFFF;
-        margin-left: 25px; 
-}

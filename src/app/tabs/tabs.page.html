@@ -1,25 +1,25 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom" selectedTab="onclick( $evt )" color="rm">
+  <ion-tab-bar slot="bottom" selectedTab="onclick( $evt )">
     
-    <ion-tab-button tab="tab1">
-      <ion-icon name="people-outline" color="rm-gris"></ion-icon>
-      <ion-label color="rm-gris">Personajes</ion-label>
+    <ion-tab-button tab="tab1" #tab1>
+      <ion-icon [name]="tab1.selected ? 'people' : 'people-outline'" ></ion-icon>
+      <ion-label >Personajes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" selected="selectedTab2">
-      <ion-icon name="planet-outline" color="rm-gris"></ion-icon>
-      <ion-label color="rm-gris">Ubicaciones</ion-label>
+    <ion-tab-button tab="tab2" #tab2>
+      <ion-icon [name]="tab2.selected ? 'planet' : 'planet-outline'" ></ion-icon>
+      <ion-label >Ubicaciones</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" selected="selectedTab3">
-      <ion-icon name="videocam-outline" color="rm-gris"></ion-icon>
-      <ion-label color="rm-gris">Episodios</ion-label>
+    <ion-tab-button tab="tab3" #tab3>
+      <ion-icon [name]="tab3.selected ? 'videocam' : 'videocam-outline'" ></ion-icon>
+      <ion-label >Episodios</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab4">
-      <ion-icon name="settings-outline" color="rm-gris"></ion-icon>
-      <ion-label color="rm-gris">Configuracion</ion-label>
+    <ion-tab-button tab="tab4" #tab4> 
+      <ion-icon [name]="tab4.selected ? 'settings' : 'settings-outline'" ></ion-icon>
+      <ion-label >Configuracion</ion-label>
     </ion-tab-button>
     
   </ion-tab-bar>

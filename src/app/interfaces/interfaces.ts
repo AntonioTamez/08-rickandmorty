@@ -36,12 +36,12 @@ interface InfoCharacter {
 
 //location
 
-interface Locations {
+export interface Locations {
   info: InfoLocation;
   results: Location[];
 }
 
-interface Location {
+export interface Location {
   id: number;
   name: string;
   type: string;
@@ -51,7 +51,7 @@ interface Location {
   created: string;
 }
 
-interface InfoLocation {
+export interface InfoLocation {
   count: number;
   pages: number;
   next: string;
@@ -60,7 +60,7 @@ interface InfoLocation {
 
 //episode
 
-interface Episodes {
+export interface Episodes {
   info: InfoEpisode;
   results: Episode[];
 }
@@ -75,7 +75,7 @@ export interface Episode {
   created: string;
 }
 
-interface InfoEpisode {
+export interface InfoEpisode {
   count: number;
   pages: number;
   next: string;
