@@ -36,3 +36,56 @@
 //             margin-left: -400px;   /* Agregamos un margen negativo que represente el 50% */
 //     }
 // }
+
+.responsiveImg{
+    width: -webkit-fill-available;
+}
+
+.NombrePersonaje{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.titulo{
+    color: var(--ion-color-medium);
+    font-size: small;
+}
+
+.episodio{
+    color: var(--ion-color-rm-azul);
+    font-size: medium;
+}
+
+.tituloEpisodio{ 
+    font-size: larger;
+    padding: 5px 0px;
+}
+
+.fechaEpisodio{
+    color: var(--ion-color-rm-gris-claro);
+}
+
+.detalle{
+    font-size: large;
+}
+
+.header{
+    font-size: larger;
+}
+
+.imagenEpisodio{
+    border: 5px solid --ion-color-primary;
+    border-radius: 25% 
+ 
+}
+
+.padding{
+    padding: 0px 15px;
+}
+
+
+
+// *{
+//     font-family: 'Roboto', sans-serif;
+//     background-color: var(--ion-color-rmdark);
+// }

@@ -1,7 +1,7 @@
  
   
 
- <ion-header class="ion-no-border">
+ <ion-header color="rmdark" class="ion-no-border">
  
    <!-- <ion-toolbar>
     <div class="button-bar">
@@ -16,12 +16,12 @@
 
     </div>
   </ion-toolbar> -->
-  <ion-toolbar class="ion-no-border">
+  <ion-toolbar color="rmdark" class="ion-no-border">
     <ion-title>
       Episodios
     </ion-title>
   </ion-toolbar>
-  <ion-toolbar class="ion-no-border">
+  <ion-toolbar color="rmdark" class="ion-no-border">
    
     <ion-segment value="todos" (ionChange)="segmentChanged($event)" mode="md">
       <div class="button-bar">
@@ -50,6 +50,8 @@
  
 
 <ion-content>  
+
+  
   <ion-list>
     
     <ion-item *ngFor="let epi of  episode   | filtro:filtroBusqueda:'episode'"
