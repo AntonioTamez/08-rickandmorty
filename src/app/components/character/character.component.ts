@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Character, Episode } from '../../interfaces/interfaces';
 import { ModalController, AnimationController } from '@ionic/angular';
 import { ApiService } from '../../services/api.service';
+import { LocationComponent } from '../location/location.component';
  
 @Component({
   selector: 'app-character',
@@ -87,6 +88,26 @@ export class CharacterComponent implements OnInit {
 
   //   animation.play();
   // }
+
+  async verDetalle(url : string){
+ 
+   
+
+    const modal = await this.modalCtrl.create({
+      component: LocationComponent,
+      animated:true,
+      swipeToClose:true, 
+      showBackdrop:true,
+      backdropDismiss:true,
+      cssClass:"animate__backInLeft",
+      componentProps: {
+        url: url,
+        
+      }
+    });
+
+    modal.present();
+  }
 
 
 }

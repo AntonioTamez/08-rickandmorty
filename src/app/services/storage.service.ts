@@ -31,7 +31,7 @@ async initDB(){
   async CargarTemaFavorito(){
     const tema = await this.storage.get('tema');
     this._temaFavorito = tema;
-    console.log("storage.service CargarTemaFavorito", this._temaFavorito);
+    //console.log("storage.service CargarTemaFavorito", this._temaFavorito);
     return this._temaFavorito;
   }
 

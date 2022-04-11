@@ -56,6 +56,15 @@ export class ApiService {
     return this.ejecutarQuery<Locations>(query);
   }
 
+  getLocationById(url: string):Observable<Location>{
+
+    const id = url.split('/')[5]
+    const query = `/location/${id}`;
+    console.log("getLocationById",query);
+    return this.ejecutarQuery<Location>(query);
+
+  }
+
   getEpisode(page: number):Observable<Episodes>{
     const query = `/episode?page=${page}`;
     //console.log('api.service - getEpisode ',query);
@@ -67,7 +76,6 @@ export class ApiService {
  
     const query = `/episode?page=${1}`;
 
-    
   }
 
   getEpisodeById(id: string):Observable<Episode>{
