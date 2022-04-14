@@ -1,3 +1,4 @@
+ 
 // character
 
 
@@ -49,6 +50,12 @@ export interface Location {
   residents: string[];
   url: string;
   created: string;
+}
+
+
+export interface LocationWithCharacters{
+ Location : Location;
+ Character: Character;
 }
 
 export interface InfoLocation {

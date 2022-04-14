@@ -64,7 +64,7 @@ export class Tab1Page implements OnInit{
 
     setTimeout(() => {
       this.apiService.getCharacters().subscribe( resp => {
-        
+        //console.log(resp);
         this.EpisodiosTotales = resp.info.count;
          
         if(resp.results.length > 0)

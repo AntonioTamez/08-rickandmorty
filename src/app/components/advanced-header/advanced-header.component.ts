@@ -20,7 +20,7 @@ export class AdvancedHeaderComponent implements OnInit {
     if(this.image != ''){
       this.imagenParaMostrar = this.image;
     } else {
-      this.imagenParaMostrar = '../../../assets/img/earth.jpg';
+      this.imagenParaMostrar = '../../../assets/img/rocket2.png';
     }
 
   }

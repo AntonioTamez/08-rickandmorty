@@ -89,7 +89,7 @@ export class CharacterComponent implements OnInit {
   //   animation.play();
   // }
 
-  async verDetalle(url : string){
+  async verDetalle(locaciones : string){
  
    
 
@@ -101,7 +101,7 @@ export class CharacterComponent implements OnInit {
       backdropDismiss:true,
       cssClass:"animate__backInLeft",
       componentProps: {
-        url: url,
+        locaciones: locaciones,
         
       }
     });
