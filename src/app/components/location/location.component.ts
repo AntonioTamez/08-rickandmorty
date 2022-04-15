@@ -46,7 +46,7 @@ export class LocationComponent implements OnInit {
       this.residents.forEach(element => {
         //console.log(element.split('/')[5]);
         this.apiService.getCharactersById(element.split('/')[5]).subscribe(resp => {
-          console.log(resp);
+          //console.log(resp);
           this.Characters.push(resp);
         } );
       });

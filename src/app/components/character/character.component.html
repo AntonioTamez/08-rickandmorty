@@ -60,7 +60,7 @@
                 <ion-label class="titulo">Locacion</ion-label>
             </ion-col>
         </ion-row>
-        <ion-row class="padding-bottom">
+        <ion-row class="padding-bottom" (click)="verDetalle(personaje.location.url)">
             <ion-col size="6">
                 <ion-label class="detalle">{{ personaje.location.name }}</ion-label>
             </ion-col>

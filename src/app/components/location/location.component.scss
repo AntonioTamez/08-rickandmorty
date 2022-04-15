@@ -14,6 +14,10 @@ ion-item::part(native){
     // top: -30px;
 }
 
+.list-md{
+    padding-top: 0px;
+}
+
 .list-md .item-lines-none {
     --border-width: 0;
     --inner-border-width: 0;
@@ -29,5 +33,5 @@ ion-item::part(native){
 .field{ 
     padding: 5px 15px;
     font-size: larger;
-    color: #fff;
+    //color: #fff;
 }

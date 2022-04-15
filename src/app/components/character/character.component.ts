@@ -40,17 +40,23 @@ export class CharacterComponent implements OnInit {
     // this.animateTexto();
 
     this.personaje = this.character;
-    
+
     this.character.episode.forEach(element => {
       
       this.id = element.slice(this.cadena.length,element.length);
- 
+      
       this.api.getEpisodeById(this.id).subscribe(
         (data: Episode) => {
           this.episodes.push(data);
         });
 
     });
+
+    //sort array
+    this.episodes.sort(function(a, b){
+      return a.episode > b.episode ? 1 : -1;
+    });
+
 
     //this.episodes = this.episodes.sort( (a,b) => a.id-b.id ); 
   }
@@ -91,7 +97,10 @@ export class CharacterComponent implements OnInit {
 
   async verDetalle(locaciones : string){
  
-   
+     
+   if(locaciones === ""){  
+      return;
+   }
 
     const modal = await this.modalCtrl.create({
       component: LocationComponent,
