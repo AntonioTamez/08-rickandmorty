@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.rickandmorty',
+  appId: 'com.antoniotamez.rickandmorty',
   appName: 'rickandmorty',
   webDir: 'www',
   bundledWebRuntime: false

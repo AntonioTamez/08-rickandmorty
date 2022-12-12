@@ -1,5 +1,5 @@
 {
-	"appId": "io.ionic.rickandmorty",
+	"appId": "com.antoniotamez.rickandmorty",
 	"appName": "rickandmorty",
 	"webDir": "www",
 	"bundledWebRuntime": false

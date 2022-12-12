@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Rick and Morty</string>
     <string name="title_activity_main">Rick and Morty</string>
-    <string name="package_name">io.ionic.rickandmorty</string>
-    <string name="custom_url_scheme">io.ionic.rickandmorty</string>
+    <string name="package_name">com.antoniotamez.rickandmorty</string>
+    <string name="custom_url_scheme">com.antoniotamez.rickandmorty</string>
 </resources>
